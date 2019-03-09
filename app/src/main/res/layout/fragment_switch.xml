@@ -29,6 +29,13 @@
         android:text="Mvvm" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/goto_mvvmrx"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Mvvm Rx" />
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/goto_rxpm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import com.example.alexander.rxview.bare.BareFragment
 import com.example.alexander.rxview.mvp.MvpFragment
 import com.example.alexander.rxview.mvvm.MvvmFragment
+import com.example.alexander.rxview.mvvmrx.MvvmRxFragment
 import com.example.alexander.rxview.rxmp.RxPmFragment
 
 class MainActivity : AppCompatActivity(), Navigation {
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity(), Navigation {
     override fun gotoMvp() = changeFragment(MvpFragment.newInstance())
     override fun gotoMvvm() = changeFragment(MvvmFragment.newInstance())
     override fun gotoRx() = changeFragment(RxPmFragment.newInstance())
+    override fun gotoMvvmRx() = changeFragment(MvvmRxFragment.newInstance())
     override fun gotoBare() = changeFragment(BareFragment.newInstance())
 
     private fun changeFragment(fragment: Fragment, addToBackStack: Boolean = true) {
