@@ -40,6 +40,9 @@ class SwitchFragment : Fragment() {
         goto_rxpm.setOnClickListener {
             navigation?.gotoRx()
         }
+        goto_bare.setOnClickListener {
+            navigation?.gotoBare()
+        }
     }
 
     companion object {

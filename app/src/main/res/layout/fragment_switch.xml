@@ -8,6 +8,13 @@
     android:paddingRight="16dp">
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/goto_bare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Bare android" />
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/goto_mvp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
