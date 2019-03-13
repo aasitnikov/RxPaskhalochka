@@ -9,7 +9,9 @@ interface MvvmContract {
     interface ViewModel {
         val count: LiveData<Int>
         val showMessage: LiveData<Event<Int>>
+        val buttonDisabled: LiveData<Boolean>
 
         fun onAddClicked()
+        fun onFetchClicked()
     }
 }

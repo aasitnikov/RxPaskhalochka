@@ -7,7 +7,9 @@ interface RxPmContract {
 
     interface PresentationModel2 {
         val count: PresentationModel.State<Int>
+        val buttonDisabled: PresentationModel.State<Boolean>
         val showMessage: PresentationModel.Command<Int>
         val onAddClick: PresentationModel.Action<Unit>
+        val onFetchClick: PresentationModel.Action<Unit>
     }
 }

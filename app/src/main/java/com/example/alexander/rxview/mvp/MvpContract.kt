@@ -8,6 +8,7 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
 class MvpContract {
     interface Presenter {
         fun onAddClicked()
+        fun onFetch()
     }
 }
 
@@ -18,5 +19,8 @@ interface MvpContractView : MvpView {
 
     @StateStrategyType(OneExecutionStateStrategy::class)
     fun showMessage(count: Int)
+
+    @StateStrategyType(OneExecutionStateStrategy::class)
+    fun enableButton(isProgress: Boolean)
 }
 

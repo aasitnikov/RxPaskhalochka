@@ -17,10 +17,15 @@ class MvpFragment : BaseMoxyFragment(), MvpContractView {
 
     private fun bindListeners() {
         button.setOnClickListener { presenter.onAddClicked() }
+        fetch.setOnClickListener { presenter.onFetch() }
     }
 
     override fun showCount(count: Int) = counter.setText(count.toString())
     override fun showMessage(count: Int) = showSnackbar(count)
+
+    override fun enableButton(isProgress: Boolean) {
+        button.isEnabled = isProgress
+    }
 
     companion object {
         @JvmStatic

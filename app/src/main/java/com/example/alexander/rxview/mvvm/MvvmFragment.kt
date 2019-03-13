@@ -17,8 +17,10 @@ class MvvmFragment : BaseFragment() {
     private fun bindViewModel() {
         bind(viewModel.count) { count -> counter.text = count.toString() }
         bind(viewModel.showMessage) { it.getContentIfNotHandled()?.let(this::showSnackbar) }
+        bind(viewModel.buttonDisabled) { isDisabled -> button.isEnabled = !isDisabled }
 
         button.setOnClickListener { viewModel.onAddClicked() }
+        fetch.setOnClickListener { viewModel.onFetchClicked() }
     }
 
     companion object {

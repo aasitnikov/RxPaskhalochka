@@ -1,15 +1,20 @@
 package com.example.alexander.rxview.rxmp
 
+import com.example.alexander.rxview.async.NumberService
 import io.reactivex.Observable
 import io.reactivex.functions.BiFunction
 import me.dmdev.rxpm.PresentationModel
+import me.dmdev.rxpm.bindProgress
+import me.dmdev.rxpm.skipWhileInProgress
 
 class RxPmPresentationModel : PresentationModel(), RxPmContract.PresentationModel2 {
 
     override val count: State<Int> = State(0)
+    override val buttonDisabled: State<Boolean> = State(false)
     override val showMessage: Command<Int> = Command()
 
     override val onAddClick: Action<Unit> = Action()
+    override val onFetchClick: Action<Unit> = Action()
 
     override fun onCreate() {
 //        onAddClick.observable
@@ -35,6 +40,14 @@ class RxPmPresentationModel : PresentationModel(), RxPmContract.PresentationMode
                 }
             }
             .untilDestroy()
+
+        onFetchClick.observable
+            .skipWhileInProgress(buttonDisabled.observable)
+            .flatMapSingle {
+                NumberService.downloadNumber()
+                    .bindProgress(buttonDisabled.consumer)
+            }
+            .subscribe(count.consumer)
 
         //------------
 
